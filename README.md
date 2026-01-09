@@ -342,6 +342,16 @@ Executing: /usr/lib/systemd/systemd-sysv-install enable zabbix-server
    ```
 <img width="1920" height="1080" alt="Screenshot_20260109_182846" src="https://github.com/user-attachments/assets/84699ba2-b981-49db-95d5-e4be6407f90c" />
 
+Если агент не подключается к серверу выдает ошибки в логе sudo tail -f /var/log/zabbix/zabbix_agentd.log или sudo tail -f /var/log/zabbix/zabbix_agent2.log (если активный агент)
+<img width="1920" height="1081" alt="Screenshot_20260109_203504" src="https://github.com/user-attachments/assets/39b1b0b5-f779-4d95-bf40-5d4913311f9e" />
+
+Если подключение есть, ошибок не выводит
+
+<img width="1920" height="1081" alt="Screenshot_20260109_203023" src="https://github.com/user-attachments/assets/9945523a-3ad3-43ef-a64e-6d640d7524c4" />
+
+<img width="1920" height="1081" alt="Screenshot_20260109_203629" src="https://github.com/user-attachments/assets/222bea54-a317-458d-9118-9b52b7b09eb2" />
+
+
 5. Создамим новую группу хостов на web интерфейсе сервера заббикс и добавим новые хосты (New host group New host)
    <img width="1919" height="1079" alt="Screenshot_20260109_185711" src="https://github.com/user-attachments/assets/fa05bf20-8069-4247-a995-71fd315d7785" />
    <img width="1919" height="1079" alt="Screenshot_20260109_183537" src="https://github.com/user-attachments/assets/5d6a2821-dbee-49e1-84a7-604a076c9596" />
