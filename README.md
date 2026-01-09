@@ -311,3 +311,48 @@ Executing: /usr/lib/systemd/systemd-sysv-install enable zabbix-server
 Приложите в файл README.md текст использованных команд в GitHub
 
 ### Решение:
+1. Устанавливаем репозиторий заббикса
+   ```
+   wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu20.04_all.deb
+
+   sudo dpkg -i zabbix-release_latest_7.4+ubuntu20.04_all.deb
+
+   sudo apt update
+   ```
+<img width="1920" height="1080" alt="Screenshot_20260109_182537" src="https://github.com/user-attachments/assets/081fe410-b4c0-41b9-9b4b-e5bd3e3f7aa5" />
+
+2. Устанавливаем агента и плагины
+   ```
+   sudo apt install zabbix-agent2 zabbix-agent2-plugin-mongodb zabbix-agent2-plugin-mssql zabbix-agent2-plugin-postgresql
+   ```
+<img width="1920" height="1080" alt="Screenshot_20260109_182709" src="https://github.com/user-attachments/assets/fedf1d1e-d974-46c4-9c77-31bfa7e57673" />
+
+3. Пропишем настройки в конфигурации агента, адрес сервера и имя хоста
+   ```
+   sudo nano /etc/zabbix/zabbix_agent2.conf
+   Server=192.168.88.217
+   ServerActive=192.168.88.217
+   Hostname=forzabbix1
+   ```
+<img width="1920" height="1080" alt="Screenshot_20260109_183102" src="https://github.com/user-attachments/assets/7f6d8e25-aa5c-41d2-859e-6f9744aef30b" />
+
+4. Перезапустим сервис агента
+   ```
+   sudo systemctl restart zabbix-agent2.service
+   ```
+<img width="1920" height="1080" alt="Screenshot_20260109_182846" src="https://github.com/user-attachments/assets/84699ba2-b981-49db-95d5-e4be6407f90c" />
+
+5. Создамим новую группу хостов на web интерфейсе сервера заббикс и добавим новые хосты (New host group New host)
+   <img width="1919" height="1079" alt="Screenshot_20260109_185711" src="https://github.com/user-attachments/assets/fa05bf20-8069-4247-a995-71fd315d7785" />
+   <img width="1919" height="1079" alt="Screenshot_20260109_183537" src="https://github.com/user-attachments/assets/5d6a2821-dbee-49e1-84a7-604a076c9596" />
+   <img width="1919" height="1079" alt="Screenshot_20260109_183625" src="https://github.com/user-attachments/assets/a4e9811c-8c6d-42ed-bbb7-dde4f82f8972" />
+   <img width="1919" height="1079" alt="Screenshot_20260109_183838" src="https://github.com/user-attachments/assets/4c6e2594-8693-444e-9879-6655b5abc276" />
+   <img width="1919" height="1079" alt="Screenshot_20260109_184024" src="https://github.com/user-attachments/assets/cd41bf46-f1f5-4fc6-b8e3-7a38c67d00b7" />
+   <img width="1919" height="1079" alt="Screenshot_20260109_184045" src="https://github.com/user-attachments/assets/e517ef11-e5e9-4668-8b82-79ab2abbd5f2" />
+   <img width="1919" height="1079" alt="Screenshot_20260109_184447" src="https://github.com/user-attachments/assets/39e49f35-e183-447c-a291-04e94534d88c" />
+
+
+
+
+
+
